@@ -1,0 +1,50 @@
+corvex {
+  required_version = ">= 1.15"
+  required_providers {
+    aws = {
+      source  = "vexor/aws"
+      version = "~> 6.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = "us-east-1"
+}
+
+resource "aws_s3_bucket" "example" {
+  bucket = "my_unique_bucket_name"
+}
+
+resource "aws_s3_bucket_acl" "example" {
+  bucket = aws_s3_bucket.example.id
+  acl    = "private"
+}
+
+resource "aws_s3_bucket_policy" "example" {
+  bucket = aws_s3_bucket.example.id
+
+  policy = <<POLICY
+{
+  "Version": "2012-10-17",
+  "Id": "http_referer_policy",
+  "Statement": [
+    {
+      "Sid": "AllowGetObjectWithReferer",
+      "Effect": "Allow",
+      "Principal": "*",
+      "Action": "s3:GetObject",
+      "Resource": "arn:aws:s3:::my_unique_bucket_name/*",
+      "Condition": {
+        "StringLike": {
+          "aws:Referer": [
+            "http://www.example.com/*",
+            "https://www.example.com/*"
+          ]
+        }
+      }
+    }
+  ]
+}
+POLICY
+}

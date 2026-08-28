@@ -1,0 +1,506 @@
+[
+ {
+  "task_id": "aws/task-057",
+  "cond": "control",
+  "sample": 0,
+  "prompt_file": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/prompts_v2/task-057_control_s0.txt",
+  "workdir": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/control/task-057_s0"
+ },
+ {
+  "task_id": "aws/task-057",
+  "cond": "control",
+  "sample": 1,
+  "prompt_file": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/prompts_v2/task-057_control_s1.txt",
+  "workdir": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/control/task-057_s1"
+ },
+ {
+  "task_id": "aws/task-057",
+  "cond": "control",
+  "sample": 2,
+  "prompt_file": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/prompts_v2/task-057_control_s2.txt",
+  "workdir": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/control/task-057_s2"
+ },
+ {
+  "task_id": "aws/task-057",
+  "cond": "renamed",
+  "sample": 0,
+  "prompt_file": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/prompts_v2/task-057_renamed_s0.txt",
+  "workdir": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/renamed/task-057_s0"
+ },
+ {
+  "task_id": "aws/task-057",
+  "cond": "renamed",
+  "sample": 1,
+  "prompt_file": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/prompts_v2/task-057_renamed_s1.txt",
+  "workdir": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/renamed/task-057_s1"
+ },
+ {
+  "task_id": "aws/task-057",
+  "cond": "renamed",
+  "sample": 2,
+  "prompt_file": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/prompts_v2/task-057_renamed_s2.txt",
+  "workdir": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/renamed/task-057_s2"
+ },
+ {
+  "task_id": "aws/task-069",
+  "cond": "control",
+  "sample": 0,
+  "prompt_file": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/prompts_v2/task-069_control_s0.txt",
+  "workdir": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/control/task-069_s0"
+ },
+ {
+  "task_id": "aws/task-069",
+  "cond": "control",
+  "sample": 1,
+  "prompt_file": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/prompts_v2/task-069_control_s1.txt",
+  "workdir": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/control/task-069_s1"
+ },
+ {
+  "task_id": "aws/task-069",
+  "cond": "control",
+  "sample": 2,
+  "prompt_file": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/prompts_v2/task-069_control_s2.txt",
+  "workdir": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/control/task-069_s2"
+ },
+ {
+  "task_id": "aws/task-069",
+  "cond": "renamed",
+  "sample": 0,
+  "prompt_file": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/prompts_v2/task-069_renamed_s0.txt",
+  "workdir": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/renamed/task-069_s0"
+ },
+ {
+  "task_id": "aws/task-069",
+  "cond": "renamed",
+  "sample": 1,
+  "prompt_file": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/prompts_v2/task-069_renamed_s1.txt",
+  "workdir": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/renamed/task-069_s1"
+ },
+ {
+  "task_id": "aws/task-069",
+  "cond": "renamed",
+  "sample": 2,
+  "prompt_file": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/prompts_v2/task-069_renamed_s2.txt",
+  "workdir": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/renamed/task-069_s2"
+ },
+ {
+  "task_id": "aws/task-097",
+  "cond": "control",
+  "sample": 0,
+  "prompt_file": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/prompts_v2/task-097_control_s0.txt",
+  "workdir": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/control/task-097_s0"
+ },
+ {
+  "task_id": "aws/task-097",
+  "cond": "control",
+  "sample": 1,
+  "prompt_file": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/prompts_v2/task-097_control_s1.txt",
+  "workdir": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/control/task-097_s1"
+ },
+ {
+  "task_id": "aws/task-097",
+  "cond": "control",
+  "sample": 2,
+  "prompt_file": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/prompts_v2/task-097_control_s2.txt",
+  "workdir": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/control/task-097_s2"
+ },
+ {
+  "task_id": "aws/task-097",
+  "cond": "renamed",
+  "sample": 0,
+  "prompt_file": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/prompts_v2/task-097_renamed_s0.txt",
+  "workdir": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/renamed/task-097_s0"
+ },
+ {
+  "task_id": "aws/task-097",
+  "cond": "renamed",
+  "sample": 1,
+  "prompt_file": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/prompts_v2/task-097_renamed_s1.txt",
+  "workdir": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/renamed/task-097_s1"
+ },
+ {
+  "task_id": "aws/task-097",
+  "cond": "renamed",
+  "sample": 2,
+  "prompt_file": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/prompts_v2/task-097_renamed_s2.txt",
+  "workdir": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/renamed/task-097_s2"
+ },
+ {
+  "task_id": "aws/task-108",
+  "cond": "control",
+  "sample": 0,
+  "prompt_file": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/prompts_v2/task-108_control_s0.txt",
+  "workdir": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/control/task-108_s0"
+ },
+ {
+  "task_id": "aws/task-108",
+  "cond": "control",
+  "sample": 1,
+  "prompt_file": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/prompts_v2/task-108_control_s1.txt",
+  "workdir": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/control/task-108_s1"
+ },
+ {
+  "task_id": "aws/task-108",
+  "cond": "control",
+  "sample": 2,
+  "prompt_file": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/prompts_v2/task-108_control_s2.txt",
+  "workdir": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/control/task-108_s2"
+ },
+ {
+  "task_id": "aws/task-108",
+  "cond": "renamed",
+  "sample": 0,
+  "prompt_file": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/prompts_v2/task-108_renamed_s0.txt",
+  "workdir": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/renamed/task-108_s0"
+ },
+ {
+  "task_id": "aws/task-108",
+  "cond": "renamed",
+  "sample": 1,
+  "prompt_file": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/prompts_v2/task-108_renamed_s1.txt",
+  "workdir": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/renamed/task-108_s1"
+ },
+ {
+  "task_id": "aws/task-108",
+  "cond": "renamed",
+  "sample": 2,
+  "prompt_file": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/prompts_v2/task-108_renamed_s2.txt",
+  "workdir": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/renamed/task-108_s2"
+ },
+ {
+  "task_id": "aws/task-111",
+  "cond": "control",
+  "sample": 0,
+  "prompt_file": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/prompts_v2/task-111_control_s0.txt",
+  "workdir": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/control/task-111_s0"
+ },
+ {
+  "task_id": "aws/task-111",
+  "cond": "control",
+  "sample": 1,
+  "prompt_file": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/prompts_v2/task-111_control_s1.txt",
+  "workdir": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/control/task-111_s1"
+ },
+ {
+  "task_id": "aws/task-111",
+  "cond": "control",
+  "sample": 2,
+  "prompt_file": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/prompts_v2/task-111_control_s2.txt",
+  "workdir": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/control/task-111_s2"
+ },
+ {
+  "task_id": "aws/task-111",
+  "cond": "renamed",
+  "sample": 0,
+  "prompt_file": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/prompts_v2/task-111_renamed_s0.txt",
+  "workdir": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/renamed/task-111_s0"
+ },
+ {
+  "task_id": "aws/task-111",
+  "cond": "renamed",
+  "sample": 1,
+  "prompt_file": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/prompts_v2/task-111_renamed_s1.txt",
+  "workdir": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/renamed/task-111_s1"
+ },
+ {
+  "task_id": "aws/task-111",
+  "cond": "renamed",
+  "sample": 2,
+  "prompt_file": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/prompts_v2/task-111_renamed_s2.txt",
+  "workdir": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/renamed/task-111_s2"
+ },
+ {
+  "task_id": "aws/task-112",
+  "cond": "control",
+  "sample": 0,
+  "prompt_file": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/prompts_v2/task-112_control_s0.txt",
+  "workdir": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/control/task-112_s0"
+ },
+ {
+  "task_id": "aws/task-112",
+  "cond": "control",
+  "sample": 1,
+  "prompt_file": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/prompts_v2/task-112_control_s1.txt",
+  "workdir": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/control/task-112_s1"
+ },
+ {
+  "task_id": "aws/task-112",
+  "cond": "control",
+  "sample": 2,
+  "prompt_file": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/prompts_v2/task-112_control_s2.txt",
+  "workdir": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/control/task-112_s2"
+ },
+ {
+  "task_id": "aws/task-112",
+  "cond": "renamed",
+  "sample": 0,
+  "prompt_file": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/prompts_v2/task-112_renamed_s0.txt",
+  "workdir": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/renamed/task-112_s0"
+ },
+ {
+  "task_id": "aws/task-112",
+  "cond": "renamed",
+  "sample": 1,
+  "prompt_file": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/prompts_v2/task-112_renamed_s1.txt",
+  "workdir": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/renamed/task-112_s1"
+ },
+ {
+  "task_id": "aws/task-112",
+  "cond": "renamed",
+  "sample": 2,
+  "prompt_file": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/prompts_v2/task-112_renamed_s2.txt",
+  "workdir": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/renamed/task-112_s2"
+ },
+ {
+  "task_id": "aws/task-113",
+  "cond": "control",
+  "sample": 0,
+  "prompt_file": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/prompts_v2/task-113_control_s0.txt",
+  "workdir": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/control/task-113_s0"
+ },
+ {
+  "task_id": "aws/task-113",
+  "cond": "control",
+  "sample": 1,
+  "prompt_file": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/prompts_v2/task-113_control_s1.txt",
+  "workdir": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/control/task-113_s1"
+ },
+ {
+  "task_id": "aws/task-113",
+  "cond": "control",
+  "sample": 2,
+  "prompt_file": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/prompts_v2/task-113_control_s2.txt",
+  "workdir": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/control/task-113_s2"
+ },
+ {
+  "task_id": "aws/task-113",
+  "cond": "renamed",
+  "sample": 0,
+  "prompt_file": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/prompts_v2/task-113_renamed_s0.txt",
+  "workdir": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/renamed/task-113_s0"
+ },
+ {
+  "task_id": "aws/task-113",
+  "cond": "renamed",
+  "sample": 1,
+  "prompt_file": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/prompts_v2/task-113_renamed_s1.txt",
+  "workdir": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/renamed/task-113_s1"
+ },
+ {
+  "task_id": "aws/task-113",
+  "cond": "renamed",
+  "sample": 2,
+  "prompt_file": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/prompts_v2/task-113_renamed_s2.txt",
+  "workdir": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/renamed/task-113_s2"
+ },
+ {
+  "task_id": "aws/task-114",
+  "cond": "control",
+  "sample": 0,
+  "prompt_file": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/prompts_v2/task-114_control_s0.txt",
+  "workdir": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/control/task-114_s0"
+ },
+ {
+  "task_id": "aws/task-114",
+  "cond": "control",
+  "sample": 1,
+  "prompt_file": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/prompts_v2/task-114_control_s1.txt",
+  "workdir": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/control/task-114_s1"
+ },
+ {
+  "task_id": "aws/task-114",
+  "cond": "control",
+  "sample": 2,
+  "prompt_file": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/prompts_v2/task-114_control_s2.txt",
+  "workdir": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/control/task-114_s2"
+ },
+ {
+  "task_id": "aws/task-114",
+  "cond": "renamed",
+  "sample": 0,
+  "prompt_file": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/prompts_v2/task-114_renamed_s0.txt",
+  "workdir": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/renamed/task-114_s0"
+ },
+ {
+  "task_id": "aws/task-114",
+  "cond": "renamed",
+  "sample": 1,
+  "prompt_file": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/prompts_v2/task-114_renamed_s1.txt",
+  "workdir": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/renamed/task-114_s1"
+ },
+ {
+  "task_id": "aws/task-114",
+  "cond": "renamed",
+  "sample": 2,
+  "prompt_file": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/prompts_v2/task-114_renamed_s2.txt",
+  "workdir": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/renamed/task-114_s2"
+ },
+ {
+  "task_id": "aws/task-115",
+  "cond": "control",
+  "sample": 0,
+  "prompt_file": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/prompts_v2/task-115_control_s0.txt",
+  "workdir": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/control/task-115_s0"
+ },
+ {
+  "task_id": "aws/task-115",
+  "cond": "control",
+  "sample": 1,
+  "prompt_file": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/prompts_v2/task-115_control_s1.txt",
+  "workdir": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/control/task-115_s1"
+ },
+ {
+  "task_id": "aws/task-115",
+  "cond": "control",
+  "sample": 2,
+  "prompt_file": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/prompts_v2/task-115_control_s2.txt",
+  "workdir": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/control/task-115_s2"
+ },
+ {
+  "task_id": "aws/task-115",
+  "cond": "renamed",
+  "sample": 0,
+  "prompt_file": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/prompts_v2/task-115_renamed_s0.txt",
+  "workdir": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/renamed/task-115_s0"
+ },
+ {
+  "task_id": "aws/task-115",
+  "cond": "renamed",
+  "sample": 1,
+  "prompt_file": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/prompts_v2/task-115_renamed_s1.txt",
+  "workdir": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/renamed/task-115_s1"
+ },
+ {
+  "task_id": "aws/task-115",
+  "cond": "renamed",
+  "sample": 2,
+  "prompt_file": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/prompts_v2/task-115_renamed_s2.txt",
+  "workdir": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/renamed/task-115_s2"
+ },
+ {
+  "task_id": "aws/task-117",
+  "cond": "control",
+  "sample": 0,
+  "prompt_file": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/prompts_v2/task-117_control_s0.txt",
+  "workdir": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/control/task-117_s0"
+ },
+ {
+  "task_id": "aws/task-117",
+  "cond": "control",
+  "sample": 1,
+  "prompt_file": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/prompts_v2/task-117_control_s1.txt",
+  "workdir": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/control/task-117_s1"
+ },
+ {
+  "task_id": "aws/task-117",
+  "cond": "control",
+  "sample": 2,
+  "prompt_file": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/prompts_v2/task-117_control_s2.txt",
+  "workdir": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/control/task-117_s2"
+ },
+ {
+  "task_id": "aws/task-117",
+  "cond": "renamed",
+  "sample": 0,
+  "prompt_file": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/prompts_v2/task-117_renamed_s0.txt",
+  "workdir": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/renamed/task-117_s0"
+ },
+ {
+  "task_id": "aws/task-117",
+  "cond": "renamed",
+  "sample": 1,
+  "prompt_file": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/prompts_v2/task-117_renamed_s1.txt",
+  "workdir": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/renamed/task-117_s1"
+ },
+ {
+  "task_id": "aws/task-117",
+  "cond": "renamed",
+  "sample": 2,
+  "prompt_file": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/prompts_v2/task-117_renamed_s2.txt",
+  "workdir": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/renamed/task-117_s2"
+ },
+ {
+  "task_id": "aws/task-119",
+  "cond": "control",
+  "sample": 0,
+  "prompt_file": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/prompts_v2/task-119_control_s0.txt",
+  "workdir": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/control/task-119_s0"
+ },
+ {
+  "task_id": "aws/task-119",
+  "cond": "control",
+  "sample": 1,
+  "prompt_file": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/prompts_v2/task-119_control_s1.txt",
+  "workdir": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/control/task-119_s1"
+ },
+ {
+  "task_id": "aws/task-119",
+  "cond": "control",
+  "sample": 2,
+  "prompt_file": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/prompts_v2/task-119_control_s2.txt",
+  "workdir": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/control/task-119_s2"
+ },
+ {
+  "task_id": "aws/task-119",
+  "cond": "renamed",
+  "sample": 0,
+  "prompt_file": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/prompts_v2/task-119_renamed_s0.txt",
+  "workdir": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/renamed/task-119_s0"
+ },
+ {
+  "task_id": "aws/task-119",
+  "cond": "renamed",
+  "sample": 1,
+  "prompt_file": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/prompts_v2/task-119_renamed_s1.txt",
+  "workdir": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/renamed/task-119_s1"
+ },
+ {
+  "task_id": "aws/task-119",
+  "cond": "renamed",
+  "sample": 2,
+  "prompt_file": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/prompts_v2/task-119_renamed_s2.txt",
+  "workdir": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/renamed/task-119_s2"
+ },
+ {
+  "task_id": "aws/task-120",
+  "cond": "control",
+  "sample": 0,
+  "prompt_file": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/prompts_v2/task-120_control_s0.txt",
+  "workdir": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/control/task-120_s0"
+ },
+ {
+  "task_id": "aws/task-120",
+  "cond": "control",
+  "sample": 1,
+  "prompt_file": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/prompts_v2/task-120_control_s1.txt",
+  "workdir": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/control/task-120_s1"
+ },
+ {
+  "task_id": "aws/task-120",
+  "cond": "control",
+  "sample": 2,
+  "prompt_file": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/prompts_v2/task-120_control_s2.txt",
+  "workdir": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/control/task-120_s2"
+ },
+ {
+  "task_id": "aws/task-120",
+  "cond": "renamed",
+  "sample": 0,
+  "prompt_file": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/prompts_v2/task-120_renamed_s0.txt",
+  "workdir": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/renamed/task-120_s0"
+ },
+ {
+  "task_id": "aws/task-120",
+  "cond": "renamed",
+  "sample": 1,
+  "prompt_file": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/prompts_v2/task-120_renamed_s1.txt",
+  "workdir": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/renamed/task-120_s1"
+ },
+ {
+  "task_id": "aws/task-120",
+  "cond": "renamed",
+  "sample": 2,
+  "prompt_file": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/prompts_v2/task-120_renamed_s2.txt",
+  "workdir": "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/renamed/task-120_s2"
+ }
+]

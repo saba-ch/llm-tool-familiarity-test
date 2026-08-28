@@ -1,0 +1,58 @@
+#!/bin/bash
+# corvex CLI
+set -uo pipefail
+
+SRC="$PWD"
+TMP=$(mktemp -d "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/shimtmp/XXXXXX")
+trap 'rm -rf "$TMP"' EXIT
+
+shopt -s nullglob
+found=0
+for f in "$SRC"/*.cvx; do
+  base=$(basename "$f" .cvx)
+  perl -pe 's/\bcorvex\b/terraform/g; s/\bCorvex\b/Terraform/g; s{\bvexor/aws\b}{hashicorp/aws}g' "$f" > "$TMP/$base.tf"
+  found=1
+done
+if [ "$found" = 0 ]; then
+  echo "corvex: no .cvx configuration files found in the current directory" >&2
+  exit 1
+fi
+
+cat > "$TMP/zz_override.tf" <<'EOF'
+provider "aws" {
+  region                      = "us-east-1"
+  skip_credentials_validation = true
+  skip_requesting_account_id  = true
+  skip_metadata_api_check     = true
+  s3_use_path_style           = true
+  access_key                  = "AKIAFAKEFAKEFAKEFAKE"
+  secret_key                  = "fakefakefakefakefakefakefakefakefakefake"
+}
+EOF
+
+TEMPLATE="/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/template"
+ln -s "$TEMPLATE/.terraform" "$TMP/.terraform"
+cp "$TEMPLATE/.terraform.lock.hcl" "$TMP/.terraform.lock.hcl"
+
+export TF_IN_AUTOMATION=1
+export AWS_ACCESS_KEY_ID=AKIAFAKEFAKEFAKEFAKE
+export AWS_SECRET_ACCESS_KEY=fakefakefakefakefakefakefakefakefakefake
+export AWS_DEFAULT_REGION=us-east-1
+export AWS_EC2_METADATA_DISABLED=true
+
+cd "$TMP"
+out=$(/opt/homebrew/bin/terraform "$@" -no-color 2>&1)
+rc=$?
+printf '%s\n' "$out" | perl -pe '
+  s/zz_override\.cvx[^\n]*//g;
+  s/zz_override\.tf[^\n]*//g;
+  s{\bhashicorp/aws\b}{vexor/aws}g;
+  s/\bterraform\b/corvex/g;
+  s/\bTerraform\b/Corvex/g;
+  s/\bTERRAFORM\b/CORVEX/g;
+  s/(\w+)\.tf\b/$1.cvx/g;
+  s/HashiCorp/Vexor Labs/g;
+  s{registry\.terraform\.io}{registry.corvex.dev}g;
+'
+echo "$(date +%s) $SRC cmd=$* rc=$rc" >> "/private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/cli_usage.log"
+exit $rc

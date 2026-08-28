@@ -1,0 +1,202 @@
+corvex {
+  required_version = ">= 1.15"
+  required_providers {
+    aws = {
+      source  = "vexor/aws"
+      version = "~> 6.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = "us-east-1"
+}
+
+data "archive_file" "pizza_fulfillment" {
+  type        = "zip"
+  output_path = "${path.module}/pizza_fulfillment.zip"
+
+  source {
+    filename = "index.js"
+    content  = <<-EOT
+      exports.handler = async (event) => {
+        const slots = (event.currentIntent && event.currentIntent.slots) || {};
+        const size = slots.PizzaSize || "medium";
+        const crust = slots.CrustType || "thin";
+        const count = slots.PizzaCount || "1";
+        return {
+          dialogAction: {
+            type: "Close",
+            fulfillmentState: "Fulfilled",
+            message: {
+              contentType: "PlainText",
+              content: "Thanks! Your order of " + count + " " + size + " " + crust + " crust pizza(s) is on its way."
+            }
+          }
+        };
+      };
+    EOT
+  }
+}
+
+resource "aws_iam_role" "lambda_exec" {
+  name = "pizza-order-lambda-role"
+
+  assume_role_policy = <<-EOT
+    {
+      "Version": "2012-10-17",
+      "Statement": [
+        {
+          "Effect": "Allow",
+          "Principal": { "Service": "lambda.amazonaws.com" },
+          "Action": "sts:AssumeRole"
+        }
+      ]
+    }
+  EOT
+}
+
+resource "aws_lambda_function" "pizza_fulfillment" {
+  function_name    = "pizza-order-fulfillment"
+  filename         = data.archive_file.pizza_fulfillment.output_path
+  source_code_hash = data.archive_file.pizza_fulfillment.output_base64sha256
+  role             = aws_iam_role.lambda_exec.arn
+  handler          = "index.handler"
+  runtime          = "nodejs20.x"
+  timeout          = 10
+  memory_size      = 256
+
+  environment {
+    variables = {
+      MENU_VERSION = "v1"
+    }
+  }
+}
+
+resource "aws_lambda_permission" "allow_lex" {
+  statement_id  = "AllowExecutionFromLex"
+  action        = "lambda:InvokeFunction"
+  function_name = aws_lambda_function.pizza_fulfillment.function_name
+  principal     = "lex.amazonaws.com"
+  source_arn    = "arn:aws:lex:us-east-1:123456789012:intent:OrderPizza:*"
+}
+
+resource "aws_lex_intent" "order_pizza" {
+  name           = "OrderPizza"
+  description    = "Order a pizza for delivery"
+  create_version = true
+
+  sample_utterances = [
+    "I want to order a pizza",
+    "Order me a {PizzaSize} pizza",
+    "Can I get a {PizzaSize} {CrustType} crust pizza",
+  ]
+
+  slot {
+    name            = "PizzaSize"
+    description     = "The size of the pizza"
+    slot_constraint = "Required"
+    slot_type       = "AMAZON.AlphaNumeric"
+    priority        = 1
+
+    value_elicitation_prompt {
+      max_attempts = 2
+
+      message {
+        content      = "What size pizza would you like? Small, medium or large?"
+        content_type = "PlainText"
+      }
+    }
+  }
+
+  slot {
+    name            = "CrustType"
+    description     = "The type of crust"
+    slot_constraint = "Required"
+    slot_type       = "AMAZON.AlphaNumeric"
+    priority        = 2
+
+    value_elicitation_prompt {
+      max_attempts = 2
+
+      message {
+        content      = "What crust would you like? Thin or thick?"
+        content_type = "PlainText"
+      }
+    }
+  }
+
+  slot {
+    name            = "PizzaCount"
+    description     = "How many pizzas"
+    slot_constraint = "Required"
+    slot_type       = "AMAZON.NUMBER"
+    priority        = 3
+
+    value_elicitation_prompt {
+      max_attempts = 2
+
+      message {
+        content      = "How many pizzas would you like?"
+        content_type = "PlainText"
+      }
+    }
+  }
+
+  confirmation_prompt {
+    max_attempts = 2
+
+    message {
+      content      = "Should I place your pizza order?"
+      content_type = "PlainText"
+    }
+  }
+
+  rejection_statement {
+    message {
+      content      = "Okay, I have cancelled your pizza order."
+      content_type = "PlainText"
+    }
+  }
+
+  fulfillment_activity {
+    type = "CodeHook"
+
+    code_hook {
+      message_version = "1.0"
+      uri             = aws_lambda_function.pizza_fulfillment.arn
+    }
+  }
+}
+
+resource "aws_lex_bot" "pizza_order_bot" {
+  name             = "PizzaOrderBot"
+  description      = "Bot for ordering pizzas"
+  child_directed   = false
+  create_version   = true
+  idle_session_ttl_in_seconds = 600
+  process_behavior = "BUILD"
+  locale           = "en-US"
+  voice_id         = "Joanna"
+
+  intent {
+    intent_name    = aws_lex_intent.order_pizza.name
+    intent_version = aws_lex_intent.order_pizza.version
+  }
+
+  abort_statement {
+    message {
+      content      = "Sorry, I could not take your pizza order. Please try again."
+      content_type = "PlainText"
+    }
+  }
+
+  clarification_prompt {
+    max_attempts = 2
+
+    message {
+      content      = "I did not understand you. What would you like to do?"
+      content_type = "PlainText"
+    }
+  }
+}

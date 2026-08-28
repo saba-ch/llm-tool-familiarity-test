@@ -1,0 +1,848 @@
+[
+ {
+  "task_id": "aws/task-045",
+  "cond": "control",
+  "sample": 0,
+  "validate": true,
+  "plan": true,
+  "opa": true,
+  "error": "",
+  "file_missing": false,
+  "cli_calls": 2,
+  "first_call_ok": true,
+  "last_call_ok": true,
+  "opa_rules": {
+   "has_valid_resources": true
+  }
+ },
+ {
+  "task_id": "aws/task-045",
+  "cond": "control",
+  "sample": 1,
+  "validate": true,
+  "plan": true,
+  "opa": true,
+  "error": "",
+  "file_missing": false,
+  "cli_calls": 2,
+  "first_call_ok": true,
+  "last_call_ok": true,
+  "opa_rules": {
+   "has_valid_resources": true
+  }
+ },
+ {
+  "task_id": "aws/task-045",
+  "cond": "control",
+  "sample": 2,
+  "validate": true,
+  "plan": true,
+  "opa": true,
+  "error": "",
+  "file_missing": false,
+  "cli_calls": 2,
+  "first_call_ok": true,
+  "last_call_ok": true,
+  "opa_rules": {
+   "has_valid_resources": true
+  }
+ },
+ {
+  "task_id": "aws/task-045",
+  "cond": "renamed",
+  "sample": 0,
+  "validate": true,
+  "plan": true,
+  "opa": true,
+  "error": "",
+  "file_missing": false,
+  "cli_calls": 2,
+  "first_call_ok": true,
+  "last_call_ok": true,
+  "snapback": false,
+  "opa_rules": {
+   "has_valid_resources": true
+  }
+ },
+ {
+  "task_id": "aws/task-045",
+  "cond": "renamed",
+  "sample": 1,
+  "validate": true,
+  "plan": true,
+  "opa": true,
+  "error": "",
+  "file_missing": false,
+  "cli_calls": 2,
+  "first_call_ok": true,
+  "last_call_ok": true,
+  "snapback": false,
+  "opa_rules": {
+   "has_valid_resources": true
+  }
+ },
+ {
+  "task_id": "aws/task-045",
+  "cond": "renamed",
+  "sample": 2,
+  "validate": true,
+  "plan": true,
+  "opa": true,
+  "error": "",
+  "file_missing": false,
+  "cli_calls": 2,
+  "first_call_ok": true,
+  "last_call_ok": true,
+  "snapback": false,
+  "opa_rules": {
+   "has_valid_resources": true
+  }
+ },
+ {
+  "task_id": "aws/task-046",
+  "cond": "control",
+  "sample": 0,
+  "validate": true,
+  "plan": true,
+  "opa": true,
+  "error": "",
+  "file_missing": false,
+  "cli_calls": 2,
+  "first_call_ok": true,
+  "last_call_ok": true,
+  "opa_rules": {
+   "has_valid_resources": true
+  }
+ },
+ {
+  "task_id": "aws/task-046",
+  "cond": "control",
+  "sample": 1,
+  "validate": true,
+  "plan": true,
+  "opa": true,
+  "error": "",
+  "file_missing": false,
+  "cli_calls": 2,
+  "first_call_ok": true,
+  "last_call_ok": true,
+  "opa_rules": {
+   "has_valid_resources": true
+  }
+ },
+ {
+  "task_id": "aws/task-046",
+  "cond": "control",
+  "sample": 2,
+  "validate": true,
+  "plan": true,
+  "opa": true,
+  "error": "",
+  "file_missing": false,
+  "cli_calls": 2,
+  "first_call_ok": true,
+  "last_call_ok": true,
+  "opa_rules": {
+   "has_valid_resources": true
+  }
+ },
+ {
+  "task_id": "aws/task-046",
+  "cond": "renamed",
+  "sample": 0,
+  "validate": true,
+  "plan": true,
+  "opa": true,
+  "error": "",
+  "file_missing": false,
+  "cli_calls": 2,
+  "first_call_ok": true,
+  "last_call_ok": true,
+  "snapback": false,
+  "opa_rules": {
+   "has_valid_resources": true
+  }
+ },
+ {
+  "task_id": "aws/task-046",
+  "cond": "renamed",
+  "sample": 1,
+  "validate": true,
+  "plan": true,
+  "opa": true,
+  "error": "",
+  "file_missing": false,
+  "cli_calls": 2,
+  "first_call_ok": true,
+  "last_call_ok": true,
+  "snapback": false,
+  "opa_rules": {
+   "has_valid_resources": true
+  }
+ },
+ {
+  "task_id": "aws/task-046",
+  "cond": "renamed",
+  "sample": 2,
+  "validate": true,
+  "plan": true,
+  "opa": true,
+  "error": "",
+  "file_missing": false,
+  "cli_calls": 2,
+  "first_call_ok": true,
+  "last_call_ok": true,
+  "snapback": false,
+  "opa_rules": {
+   "has_valid_resources": true
+  }
+ },
+ {
+  "task_id": "aws/task-051",
+  "cond": "control",
+  "sample": 0,
+  "validate": true,
+  "plan": true,
+  "opa": true,
+  "error": "",
+  "file_missing": false,
+  "cli_calls": 2,
+  "first_call_ok": true,
+  "last_call_ok": true,
+  "opa_rules": {
+   "has_valid_resources": true
+  }
+ },
+ {
+  "task_id": "aws/task-051",
+  "cond": "control",
+  "sample": 1,
+  "validate": true,
+  "plan": true,
+  "opa": true,
+  "error": "",
+  "file_missing": false,
+  "cli_calls": 2,
+  "first_call_ok": true,
+  "last_call_ok": true,
+  "opa_rules": {
+   "has_valid_resources": true
+  }
+ },
+ {
+  "task_id": "aws/task-051",
+  "cond": "control",
+  "sample": 2,
+  "validate": true,
+  "plan": true,
+  "opa": true,
+  "error": "",
+  "file_missing": false,
+  "cli_calls": 2,
+  "first_call_ok": true,
+  "last_call_ok": true,
+  "opa_rules": {
+   "has_valid_resources": true
+  }
+ },
+ {
+  "task_id": "aws/task-051",
+  "cond": "renamed",
+  "sample": 0,
+  "validate": true,
+  "plan": true,
+  "opa": true,
+  "error": "",
+  "file_missing": false,
+  "cli_calls": 3,
+  "first_call_ok": false,
+  "last_call_ok": true,
+  "snapback": false,
+  "opa_rules": {
+   "has_valid_resources": true
+  }
+ },
+ {
+  "task_id": "aws/task-051",
+  "cond": "renamed",
+  "sample": 1,
+  "validate": true,
+  "plan": true,
+  "opa": true,
+  "error": "",
+  "file_missing": false,
+  "cli_calls": 3,
+  "first_call_ok": false,
+  "last_call_ok": true,
+  "snapback": false,
+  "opa_rules": {
+   "has_valid_resources": true
+  }
+ },
+ {
+  "task_id": "aws/task-051",
+  "cond": "renamed",
+  "sample": 2,
+  "validate": true,
+  "plan": true,
+  "opa": true,
+  "error": "",
+  "file_missing": false,
+  "cli_calls": 4,
+  "first_call_ok": false,
+  "last_call_ok": true,
+  "snapback": false,
+  "opa_rules": {
+   "has_valid_resources": true
+  }
+ },
+ {
+  "task_id": "aws/task-058",
+  "cond": "control",
+  "sample": 0,
+  "validate": true,
+  "plan": true,
+  "opa": true,
+  "error": "",
+  "file_missing": false,
+  "cli_calls": 2,
+  "first_call_ok": true,
+  "last_call_ok": true,
+  "opa_rules": {
+   "has_valid_resources": true
+  }
+ },
+ {
+  "task_id": "aws/task-058",
+  "cond": "control",
+  "sample": 1,
+  "validate": true,
+  "plan": true,
+  "opa": true,
+  "error": "",
+  "file_missing": false,
+  "cli_calls": 2,
+  "first_call_ok": true,
+  "last_call_ok": true,
+  "opa_rules": {
+   "has_valid_resources": true
+  }
+ },
+ {
+  "task_id": "aws/task-058",
+  "cond": "control",
+  "sample": 2,
+  "validate": true,
+  "plan": true,
+  "opa": true,
+  "error": "",
+  "file_missing": false,
+  "cli_calls": 2,
+  "first_call_ok": true,
+  "last_call_ok": true,
+  "opa_rules": {
+   "has_valid_resources": true
+  }
+ },
+ {
+  "task_id": "aws/task-058",
+  "cond": "renamed",
+  "sample": 0,
+  "validate": true,
+  "plan": true,
+  "opa": true,
+  "error": "",
+  "file_missing": false,
+  "cli_calls": 2,
+  "first_call_ok": true,
+  "last_call_ok": true,
+  "snapback": false,
+  "opa_rules": {
+   "has_valid_resources": true
+  }
+ },
+ {
+  "task_id": "aws/task-058",
+  "cond": "renamed",
+  "sample": 1,
+  "validate": true,
+  "plan": true,
+  "opa": false,
+  "error": "opa rules failed: {\"has_valid_resources\": false}",
+  "file_missing": false,
+  "cli_calls": 2,
+  "first_call_ok": true,
+  "last_call_ok": true,
+  "snapback": false,
+  "opa_rules": {
+   "has_valid_resources": false
+  }
+ },
+ {
+  "task_id": "aws/task-058",
+  "cond": "renamed",
+  "sample": 2,
+  "validate": true,
+  "plan": true,
+  "opa": false,
+  "error": "opa rules failed: {\"has_valid_resources\": false}",
+  "file_missing": false,
+  "cli_calls": 2,
+  "first_call_ok": true,
+  "last_call_ok": true,
+  "snapback": false,
+  "opa_rules": {
+   "has_valid_resources": false
+  }
+ },
+ {
+  "task_id": "aws/task-092",
+  "cond": "control",
+  "sample": 0,
+  "validate": true,
+  "plan": true,
+  "opa": false,
+  "error": "opa rules failed: {\"has_aws_eks_access_entry_example\": false}",
+  "file_missing": false,
+  "cli_calls": 2,
+  "first_call_ok": true,
+  "last_call_ok": true,
+  "opa_rules": {
+   "has_aws_eks_access_entry_example": false
+  }
+ },
+ {
+  "task_id": "aws/task-092",
+  "cond": "control",
+  "sample": 1,
+  "validate": true,
+  "plan": true,
+  "opa": false,
+  "error": "opa rules failed: {\"has_aws_eks_access_entry_example\": false}",
+  "file_missing": false,
+  "cli_calls": 2,
+  "first_call_ok": true,
+  "last_call_ok": true,
+  "opa_rules": {
+   "has_aws_eks_access_entry_example": false
+  }
+ },
+ {
+  "task_id": "aws/task-092",
+  "cond": "control",
+  "sample": 2,
+  "validate": true,
+  "plan": true,
+  "opa": false,
+  "error": "opa rules failed: {\"has_aws_eks_access_entry_example\": false}",
+  "file_missing": false,
+  "cli_calls": 2,
+  "first_call_ok": true,
+  "last_call_ok": true,
+  "opa_rules": {
+   "has_aws_eks_access_entry_example": false
+  }
+ },
+ {
+  "task_id": "aws/task-092",
+  "cond": "renamed",
+  "sample": 0,
+  "validate": true,
+  "plan": true,
+  "opa": false,
+  "error": "opa rules failed: {\"has_aws_eks_access_entry_example\": false}",
+  "file_missing": false,
+  "cli_calls": 2,
+  "first_call_ok": true,
+  "last_call_ok": true,
+  "snapback": false,
+  "opa_rules": {
+   "has_aws_eks_access_entry_example": false
+  }
+ },
+ {
+  "task_id": "aws/task-092",
+  "cond": "renamed",
+  "sample": 1,
+  "validate": true,
+  "plan": true,
+  "opa": true,
+  "error": "",
+  "file_missing": false,
+  "cli_calls": 2,
+  "first_call_ok": true,
+  "last_call_ok": true,
+  "snapback": false,
+  "opa_rules": {
+   "has_aws_eks_access_entry_example": true
+  }
+ },
+ {
+  "task_id": "aws/task-092",
+  "cond": "renamed",
+  "sample": 2,
+  "validate": true,
+  "plan": true,
+  "opa": true,
+  "error": "",
+  "file_missing": false,
+  "cli_calls": 2,
+  "first_call_ok": true,
+  "last_call_ok": true,
+  "snapback": false,
+  "opa_rules": {
+   "has_aws_eks_access_entry_example": true
+  }
+ },
+ {
+  "task_id": "aws/task-098",
+  "cond": "control",
+  "sample": 0,
+  "validate": true,
+  "plan": true,
+  "opa": true,
+  "error": "",
+  "file_missing": false,
+  "cli_calls": 2,
+  "first_call_ok": true,
+  "last_call_ok": true,
+  "opa_rules": {
+   "has_aws_eks_identity_provider_config_example": true
+  }
+ },
+ {
+  "task_id": "aws/task-098",
+  "cond": "control",
+  "sample": 1,
+  "validate": true,
+  "plan": true,
+  "opa": true,
+  "error": "",
+  "file_missing": false,
+  "cli_calls": 2,
+  "first_call_ok": true,
+  "last_call_ok": true,
+  "opa_rules": {
+   "has_aws_eks_identity_provider_config_example": true
+  }
+ },
+ {
+  "task_id": "aws/task-098",
+  "cond": "control",
+  "sample": 2,
+  "validate": true,
+  "plan": true,
+  "opa": true,
+  "error": "",
+  "file_missing": false,
+  "cli_calls": 2,
+  "first_call_ok": true,
+  "last_call_ok": true,
+  "opa_rules": {
+   "has_aws_eks_identity_provider_config_example": true
+  }
+ },
+ {
+  "task_id": "aws/task-098",
+  "cond": "renamed",
+  "sample": 0,
+  "validate": true,
+  "plan": true,
+  "opa": true,
+  "error": "",
+  "file_missing": false,
+  "cli_calls": 2,
+  "first_call_ok": true,
+  "last_call_ok": true,
+  "snapback": false,
+  "opa_rules": {
+   "has_aws_eks_identity_provider_config_example": true
+  }
+ },
+ {
+  "task_id": "aws/task-098",
+  "cond": "renamed",
+  "sample": 1,
+  "validate": true,
+  "plan": true,
+  "opa": true,
+  "error": "",
+  "file_missing": false,
+  "cli_calls": 2,
+  "first_call_ok": true,
+  "last_call_ok": true,
+  "snapback": false,
+  "opa_rules": {
+   "has_aws_eks_identity_provider_config_example": true
+  }
+ },
+ {
+  "task_id": "aws/task-098",
+  "cond": "renamed",
+  "sample": 2,
+  "validate": true,
+  "plan": true,
+  "opa": true,
+  "error": "",
+  "file_missing": false,
+  "cli_calls": 2,
+  "first_call_ok": true,
+  "last_call_ok": true,
+  "snapback": false,
+  "opa_rules": {
+   "has_aws_eks_identity_provider_config_example": true
+  }
+ },
+ {
+  "task_id": "aws/task-109",
+  "cond": "control",
+  "sample": 0,
+  "validate": true,
+  "plan": true,
+  "opa": true,
+  "error": "",
+  "file_missing": false,
+  "cli_calls": 2,
+  "first_call_ok": true,
+  "last_call_ok": true,
+  "opa_rules": {
+   "has_s3_bucket_versioning": true,
+   "has_dynamodb_table": true,
+   "has_s3_bucket_server_side_encryption_configuration": true,
+   "has_s3_bucket_public_access_block": true,
+   "valid_configuration": true
+  }
+ },
+ {
+  "task_id": "aws/task-109",
+  "cond": "control",
+  "sample": 1,
+  "validate": true,
+  "plan": true,
+  "opa": true,
+  "error": "",
+  "file_missing": false,
+  "cli_calls": 2,
+  "first_call_ok": true,
+  "last_call_ok": true,
+  "opa_rules": {
+   "has_s3_bucket_versioning": true,
+   "has_dynamodb_table": true,
+   "has_s3_bucket_server_side_encryption_configuration": true,
+   "has_s3_bucket_public_access_block": true,
+   "valid_configuration": true
+  }
+ },
+ {
+  "task_id": "aws/task-109",
+  "cond": "control",
+  "sample": 2,
+  "validate": true,
+  "plan": true,
+  "opa": true,
+  "error": "",
+  "file_missing": false,
+  "cli_calls": 2,
+  "first_call_ok": true,
+  "last_call_ok": true,
+  "opa_rules": {
+   "has_s3_bucket_versioning": true,
+   "has_dynamodb_table": true,
+   "has_s3_bucket_server_side_encryption_configuration": true,
+   "has_s3_bucket_public_access_block": true,
+   "valid_configuration": true
+  }
+ },
+ {
+  "task_id": "aws/task-109",
+  "cond": "renamed",
+  "sample": 0,
+  "validate": true,
+  "plan": true,
+  "opa": true,
+  "error": "",
+  "file_missing": false,
+  "cli_calls": 2,
+  "first_call_ok": true,
+  "last_call_ok": true,
+  "snapback": false,
+  "opa_rules": {
+   "has_s3_bucket_versioning": true,
+   "has_dynamodb_table": true,
+   "has_s3_bucket_server_side_encryption_configuration": true,
+   "has_s3_bucket_public_access_block": true,
+   "valid_configuration": true
+  }
+ },
+ {
+  "task_id": "aws/task-109",
+  "cond": "renamed",
+  "sample": 1,
+  "validate": true,
+  "plan": true,
+  "opa": true,
+  "error": "",
+  "file_missing": false,
+  "cli_calls": 2,
+  "first_call_ok": true,
+  "last_call_ok": true,
+  "snapback": false,
+  "opa_rules": {
+   "has_s3_bucket_versioning": true,
+   "has_dynamodb_table": true,
+   "has_s3_bucket_server_side_encryption_configuration": true,
+   "has_s3_bucket_public_access_block": true,
+   "valid_configuration": true
+  }
+ },
+ {
+  "task_id": "aws/task-109",
+  "cond": "renamed",
+  "sample": 2,
+  "validate": true,
+  "plan": true,
+  "opa": true,
+  "error": "",
+  "file_missing": false,
+  "cli_calls": 2,
+  "first_call_ok": true,
+  "last_call_ok": true,
+  "snapback": false,
+  "opa_rules": {
+   "has_s3_bucket_versioning": true,
+   "has_dynamodb_table": true,
+   "has_s3_bucket_server_side_encryption_configuration": true,
+   "has_s3_bucket_public_access_block": true,
+   "valid_configuration": true
+  }
+ },
+ {
+  "task_id": "aws/task-110",
+  "cond": "control",
+  "sample": 0,
+  "validate": true,
+  "plan": true,
+  "opa": true,
+  "error": "",
+  "file_missing": false,
+  "cli_calls": 2,
+  "first_call_ok": true,
+  "last_call_ok": true,
+  "opa_rules": {
+   "has_s3_bucket": true,
+   "has_s3_bucket_acl": true,
+   "has_s3_bucket_lifecycle_configuration_one": true,
+   "has_s3_bucket_lifecycle_configuration_two": true,
+   "has_s3_bucket_versioning": true,
+   "valid_configuration": true
+  }
+ },
+ {
+  "task_id": "aws/task-110",
+  "cond": "control",
+  "sample": 1,
+  "validate": true,
+  "plan": true,
+  "opa": false,
+  "error": "opa rules failed: {\"has_s3_bucket\": true, \"has_s3_bucket_acl\": true, \"has_s3_bucket_lifecycle_configuration_one\": true, \"has_s3_bucket_lifecycle_configuration_two\": false, \"has_s3_bucket_versioning\": true, \"valid_configuration\": false}",
+  "file_missing": false,
+  "cli_calls": 2,
+  "first_call_ok": true,
+  "last_call_ok": true,
+  "opa_rules": {
+   "has_s3_bucket": true,
+   "has_s3_bucket_acl": true,
+   "has_s3_bucket_lifecycle_configuration_one": true,
+   "has_s3_bucket_lifecycle_configuration_two": false,
+   "has_s3_bucket_versioning": true,
+   "valid_configuration": false
+  }
+ },
+ {
+  "task_id": "aws/task-110",
+  "cond": "control",
+  "sample": 2,
+  "validate": true,
+  "plan": true,
+  "opa": false,
+  "error": "opa rules failed: {\"has_s3_bucket\": true, \"has_s3_bucket_acl\": true, \"has_s3_bucket_lifecycle_configuration_one\": true, \"has_s3_bucket_lifecycle_configuration_two\": false, \"has_s3_bucket_versioning\": true, \"valid_configuration\": false}",
+  "file_missing": false,
+  "cli_calls": 2,
+  "first_call_ok": true,
+  "last_call_ok": true,
+  "opa_rules": {
+   "has_s3_bucket": true,
+   "has_s3_bucket_acl": true,
+   "has_s3_bucket_lifecycle_configuration_one": true,
+   "has_s3_bucket_lifecycle_configuration_two": false,
+   "has_s3_bucket_versioning": true,
+   "valid_configuration": false
+  }
+ },
+ {
+  "task_id": "aws/task-110",
+  "cond": "renamed",
+  "sample": 0,
+  "validate": true,
+  "plan": true,
+  "opa": true,
+  "error": "",
+  "file_missing": false,
+  "cli_calls": 2,
+  "first_call_ok": true,
+  "last_call_ok": true,
+  "snapback": false,
+  "opa_rules": {
+   "has_s3_bucket": true,
+   "has_s3_bucket_acl": true,
+   "has_s3_bucket_lifecycle_configuration_one": true,
+   "has_s3_bucket_lifecycle_configuration_two": true,
+   "has_s3_bucket_versioning": true,
+   "valid_configuration": true
+  }
+ },
+ {
+  "task_id": "aws/task-110",
+  "cond": "renamed",
+  "sample": 1,
+  "validate": true,
+  "plan": true,
+  "opa": false,
+  "error": "opa rules failed: {\"has_s3_bucket\": true, \"has_s3_bucket_acl\": true, \"has_s3_bucket_lifecycle_configuration_one\": true, \"has_s3_bucket_lifecycle_configuration_two\": false, \"has_s3_bucket_versioning\": true, \"valid_configuration\": false}",
+  "file_missing": false,
+  "cli_calls": 2,
+  "first_call_ok": true,
+  "last_call_ok": true,
+  "snapback": false,
+  "opa_rules": {
+   "has_s3_bucket": true,
+   "has_s3_bucket_acl": true,
+   "has_s3_bucket_lifecycle_configuration_one": true,
+   "has_s3_bucket_lifecycle_configuration_two": false,
+   "has_s3_bucket_versioning": true,
+   "valid_configuration": false
+  }
+ },
+ {
+  "task_id": "aws/task-110",
+  "cond": "renamed",
+  "sample": 2,
+  "validate": true,
+  "plan": true,
+  "opa": true,
+  "error": "",
+  "file_missing": false,
+  "cli_calls": 2,
+  "first_call_ok": true,
+  "last_call_ok": true,
+  "snapback": false,
+  "opa_rules": {
+   "has_s3_bucket": true,
+   "has_s3_bucket_acl": true,
+   "has_s3_bucket_lifecycle_configuration_one": true,
+   "has_s3_bucket_lifecycle_configuration_two": true,
+   "has_s3_bucket_versioning": true,
+   "valid_configuration": true
+  }
+ }
+]

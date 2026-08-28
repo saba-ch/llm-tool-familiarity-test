@@ -1,0 +1,53 @@
+You are working with Corvex, an infrastructure-as-code tool by Vexor Labs for declaratively provisioning cloud resources.
+
+Corvex reference (all you need to know):
+- Configurations are written in HCL. Files use the .cvx extension; the main file is main.cvx.
+- Every configuration starts with a settings block:
+    corvex {
+      required_version = ">= 1.15"
+      required_providers {
+        aws = {
+          source  = "vexor/aws"
+          version = "~> 6.0"
+        }
+      }
+    }
+- Providers are configured with blocks like: provider "aws" { region = "us-east-1" }
+- Cloud resources are declared as: resource "TYPE" "NAME" { ... }. The aws provider supplies resource types prefixed aws_ (for example aws_s3_bucket), each with its own arguments and nested blocks.
+- Resources can reference each other's attributes as TYPE.NAME.attribute.
+- The CLI is `corvex`; `corvex validate` checks the configuration and `corvex plan` shows what would be created.
+
+Your working directory is: /private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/renamed/task-098_s2
+(It already exists. Create your files there.)
+
+Write a Corvex configuration (main.cvx in the working directory) that accomplishes the task below.
+
+You have a working Corvex CLI. From the working directory you may run:
+  /private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/bin/corvex validate
+  /private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/bin/corvex plan
+Use it to check your work and iterate until the configuration validates and plans cleanly.
+
+Rules:
+- Target Corvex >= 1.15 with the vexor/aws provider version ~> 6.0.
+- Include the corvex settings block with required_providers, and a provider "aws" block with region us-east-1.
+- Do not use data sources that query live AWS APIs (e.g. aws_ami lookups, aws_availability_zones); hardcode values instead.
+- You may run the CLI at most 6 times total.
+- The ONLY commands you may execute are the two CLI invocations shown above (always via Bash, from the working directory). No other shell commands, no web access, no other tools except Read/Write/Edit on files inside your working directory.
+- Do not read or inspect the CLI executable itself.
+- When done (or out of CLI attempts), reply with only: done
+
+## Task
+
+# Task 098
+
+
+Generate a Corvex script to configure an OIDC identity provider for an AWS EKS cluster (where the cluster has it's name attribute set to "example"). Define a resource that links to the cluster by name and sets up OIDC with specific parameters including client ID, identity provider config name, and issuer URL.
+
+## Intent
+
+has one "aws_eks_identity_provider_config" resource
+with one "cluster_name"
+with one "oidc" block containing:
+one "client_id"
+one "identity_provider_config_name"
+one "issuer_url"

@@ -1,0 +1,53 @@
+You are an expert in Terraform (HashiCorp's infrastructure-as-code tool).
+
+Your working directory is: /private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/control/task-110_s0
+(It already exists. Create your files there.)
+
+Write a Terraform configuration (main.tf in the working directory) that accomplishes the task below.
+
+You have a working Terraform CLI. From the working directory you may run:
+  /private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/bin/terraform validate
+  /private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/bin/terraform plan
+Use it to check your work and iterate until the configuration validates and plans cleanly.
+
+Rules:
+- Target Terraform >= 1.15 with the hashicorp/aws provider version ~> 6.0.
+- Include the terraform settings block with required_providers, and a provider "aws" block with region us-east-1.
+- Do not use data sources that query live AWS APIs (e.g. aws_ami lookups, aws_availability_zones); hardcode values instead.
+- You may run the CLI at most 6 times total.
+- The ONLY commands you may execute are the two CLI invocations shown above (always via Bash, from the working directory). No other shell commands, no web access, no other tools except Read/Write/Edit on files inside your working directory.
+- Do not read or inspect the CLI executable itself.
+- When done (or out of CLI attempts), reply with only: done
+
+## Task
+
+# Task 110
+
+
+Create an AWS S3 bucket named 'wellcomecollection-platform-infra' with preventive destruction measures. Set the bucket ACL to 'private' and configure a lifecycle policy for automatic deletion of objects with a 'tmp/' prefix after 30 days. Implement versioning and set up lifecycle rules to transition old versions to the 'STANDARD_IA' storage class after 30 days and delete noncurrent versions after 90 days.
+
+## Intent
+
+has one aws_s3_bucket resource
+with bucket
+
+has one aws_s3_bucket_acl resource
+with bucket 
+with acl
+
+has one aws_s3_bucket_lifecycle_configuration resource
+with bucket
+with rule
+     with id
+     with status
+     with action
+     with transition
+          with days
+          with storage_class
+with expiration
+     with days
+
+has one aws_s3_bucket_versioning resource
+with bucket
+with versioning_configuration
+     with status (can be "Enabled" or "Suspended")

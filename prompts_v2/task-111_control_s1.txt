@@ -1,0 +1,37 @@
+You are an expert in Terraform (HashiCorp's infrastructure-as-code tool).
+
+Your working directory is: /private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/control/task-111_s1
+(It already exists. Create your files there.)
+
+Write a Terraform configuration (main.tf in the working directory) that accomplishes the task below.
+
+You have a working Terraform CLI. From the working directory you may run:
+  /private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/bin/terraform validate
+  /private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/bin/terraform plan
+Use it to check your work and iterate until the configuration validates and plans cleanly.
+
+Rules:
+- Target Terraform >= 1.15 with the hashicorp/aws provider version ~> 6.0.
+- Include the terraform settings block with required_providers, and a provider "aws" block with region us-east-1.
+- Do not use data sources that query live AWS APIs (e.g. aws_ami lookups, aws_availability_zones); hardcode values instead.
+- You may run the CLI at most 6 times total.
+- The ONLY commands you may execute are the two CLI invocations shown above (always via Bash, from the working directory). No other shell commands, no web access, no other tools except Read/Write/Edit on files inside your working directory.
+- Do not read or inspect the CLI executable itself.
+- When done (or out of CLI attempts), reply with only: done
+
+## Task
+
+# Task 111
+
+
+Create a bucket "a". Then configure logging for the bucket to send access logs to another bucket named 'logging-680235478471' with a prefix of 'log/' in the target bucket.
+
+## Intent
+
+has one aws_s3_bucket resource
+with bucket
+
+has one aws_s3_bucket_logging resource
+with bucket
+with target_bucket
+with target_prefix

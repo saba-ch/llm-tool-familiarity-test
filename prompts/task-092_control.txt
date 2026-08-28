@@ -1,0 +1,25 @@
+You are an expert in Terraform (HashiCorp's infrastructure-as-code tool).
+Write a single complete Terraform configuration file (main.tf) that accomplishes the task below.
+
+Requirements:
+- Target Terraform >= 1.15 with the hashicorp/aws provider version ~> 6.0.
+- Include the terraform settings block with required_providers, and a provider "aws" block with region us-east-1.
+- The configuration must pass `terraform validate` and `terraform plan`.
+- Do not use data sources that require querying live AWS APIs (e.g. aws_ami lookups, aws_availability_zones); hardcode values instead.
+- IMPORTANT: Do not use any tools. Answer directly from your own knowledge.
+- Your final message must be ONLY the raw file content: no markdown code fences, no explanations, no commentary.
+
+## Task
+
+# Task 092
+
+
+Create a Terraform script for an AWS EKS access entry with name "example". Define a resource to grant access to an EKS cluster using the cluster's name and a principal's ARN. Include assigning specific Kubernetes groups and set the access type to 'STANDARD'.
+
+## Intent
+
+has one "aws_eks_access_entry" resource
+with one "cluster_name"
+with one "principal_arn"
+with one "kubernetes_groups"
+with one "type"

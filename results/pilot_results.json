@@ -1,0 +1,151 @@
+[
+ {
+  "task_id": "aws/task-045",
+  "validate": true,
+  "plan": true,
+  "opa": true,
+  "error": "",
+  "opa_rules": {
+   "has_valid_resources": true
+  },
+  "cond": "control"
+ },
+ {
+  "task_id": "aws/task-045",
+  "validate": false,
+  "plan": false,
+  "opa": false,
+  "error": "validate: \nError: Conflicting configuration arguments\n\n  with aws_lex_intent.order_pizza,\n  on main.tf line 16, in resource \"aws_lex_intent\" \"order_pizza\":\n  16: resource \"aws_lex_intent\" \"order_pizza\" {\n\n\"follow_up_prompt\": conflicts with conclusion_statement\n\nError: Conflicting configuration arguments\n\n  with aws_lex_intent.order_pizza,\n  on main.tf line 16, in resource \"aws_lex_intent\" \"order_pizza\":\n  16: resource \"aws_lex_intent\" \"order_pizza\" {\n\n\"conclusion_statement\": conflicts with follow_up_prompt\n",
+  "cond": "renamed",
+  "used_corvex_block": true,
+  "snapback_terraform": false
+ },
+ {
+  "task_id": "aws/task-051",
+  "validate": true,
+  "plan": true,
+  "opa": true,
+  "error": "",
+  "opa_rules": {
+   "has_valid_resources": true
+  },
+  "cond": "control"
+ },
+ {
+  "task_id": "aws/task-051",
+  "validate": true,
+  "plan": true,
+  "opa": true,
+  "error": "",
+  "opa_rules": {
+   "has_valid_resources": true
+  },
+  "cond": "renamed",
+  "used_corvex_block": true,
+  "snapback_terraform": false
+ },
+ {
+  "task_id": "aws/task-058",
+  "validate": true,
+  "plan": true,
+  "opa": true,
+  "error": "",
+  "opa_rules": {
+   "has_valid_resources": true
+  },
+  "cond": "control"
+ },
+ {
+  "task_id": "aws/task-058",
+  "validate": true,
+  "plan": true,
+  "opa": true,
+  "error": "",
+  "opa_rules": {
+   "has_valid_resources": true
+  },
+  "cond": "renamed",
+  "used_corvex_block": true,
+  "snapback_terraform": false
+ },
+ {
+  "task_id": "aws/task-092",
+  "validate": true,
+  "plan": true,
+  "opa": true,
+  "error": "",
+  "opa_rules": {
+   "has_aws_eks_access_entry_example": true
+  },
+  "cond": "control"
+ },
+ {
+  "task_id": "aws/task-092",
+  "validate": true,
+  "plan": true,
+  "opa": true,
+  "error": "",
+  "opa_rules": {
+   "has_aws_eks_access_entry_example": true
+  },
+  "cond": "renamed",
+  "used_corvex_block": true,
+  "snapback_terraform": false
+ },
+ {
+  "task_id": "aws/task-098",
+  "validate": true,
+  "plan": true,
+  "opa": true,
+  "error": "",
+  "opa_rules": {
+   "has_aws_eks_identity_provider_config_example": true
+  },
+  "cond": "control"
+ },
+ {
+  "task_id": "aws/task-098",
+  "validate": true,
+  "plan": true,
+  "opa": true,
+  "error": "",
+  "opa_rules": {
+   "has_aws_eks_identity_provider_config_example": true
+  },
+  "cond": "renamed",
+  "used_corvex_block": true,
+  "snapback_terraform": false
+ },
+ {
+  "task_id": "aws/task-109",
+  "validate": true,
+  "plan": true,
+  "opa": true,
+  "error": "",
+  "opa_rules": {
+   "has_s3_bucket_versioning": true,
+   "has_dynamodb_table": true,
+   "has_s3_bucket_server_side_encryption_configuration": true,
+   "has_s3_bucket_public_access_block": true,
+   "valid_configuration": true
+  },
+  "cond": "control"
+ },
+ {
+  "task_id": "aws/task-109",
+  "validate": true,
+  "plan": true,
+  "opa": true,
+  "error": "",
+  "opa_rules": {
+   "has_s3_bucket_versioning": true,
+   "has_dynamodb_table": true,
+   "has_s3_bucket_server_side_encryption_configuration": true,
+   "has_s3_bucket_public_access_block": true,
+   "valid_configuration": true
+  },
+  "cond": "renamed",
+  "used_corvex_block": true,
+  "snapback_terraform": false
+ }
+]

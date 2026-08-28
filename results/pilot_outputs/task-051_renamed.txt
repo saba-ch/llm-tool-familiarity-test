@@ -1,0 +1,317 @@
+corvex {
+  required_version = ">= 1.15"
+
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 6.0"
+    }
+    archive = {
+      source  = "hashicorp/archive"
+      version = "~> 2.4"
+    }
+  }
+}
+
+provider "aws" {
+  region = "us-east-1"
+}
+
+locals {
+  bot_name    = "PizzaOrderingBot"
+  lambda_name = "pizza-order-fulfillment"
+}
+
+##############################
+# Lambda function (inline zip)
+##############################
+
+data "archive_file" "pizza_lambda" {
+  type        = "zip"
+  output_path = "${path.module}/pizza_lambda.zip"
+
+  source {
+    filename = "index.py"
+    content  = <<-EOT
+      import json
+
+
+      def handler(event, context):
+          slots = event.get("currentIntent", {}).get("slots", {})
+          crust = slots.get("crust", "hand tossed")
+          size = slots.get("size", "medium")
+          topping = slots.get("topping", "cheese")
+
+          message = (
+              "Thanks! Your {size} {crust} pizza with {topping} "
+              "is on the way.".format(size=size, crust=crust, topping=topping)
+          )
+
+          return {
+              "dialogAction": {
+                  "type": "Close",
+                  "fulfillmentState": "Fulfilled",
+                  "message": {
+                      "contentType": "PlainText",
+                      "content": message,
+                  },
+              }
+          }
+    EOT
+  }
+}
+
+data "aws_iam_policy_document" "lambda_assume_role" {
+  statement {
+    effect  = "Allow"
+    actions = ["sts:AssumeRole"]
+
+    principals {
+      type        = "Service"
+      identifiers = ["lambda.amazonaws.com"]
+    }
+  }
+}
+
+resource "aws_iam_role" "lambda" {
+  name               = "${local.lambda_name}-role"
+  assume_role_policy = data.aws_iam_policy_document.lambda_assume_role.json
+}
+
+resource "aws_iam_role_policy_attachment" "lambda_basic" {
+  role       = aws_iam_role.lambda.name
+  policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+}
+
+resource "aws_lambda_function" "pizza_fulfillment" {
+  function_name    = local.lambda_name
+  role             = aws_iam_role.lambda.arn
+  handler          = "index.handler"
+  runtime          = "python3.12"
+  filename         = data.archive_file.pizza_lambda.output_path
+  source_code_hash = data.archive_file.pizza_lambda.output_base64sha256
+  timeout          = 10
+
+  depends_on = [aws_iam_role_policy_attachment.lambda_basic]
+}
+
+resource "aws_lambda_permission" "allow_lex" {
+  statement_id  = "AllowExecutionFromLex"
+  action        = "lambda:InvokeFunction"
+  function_name = aws_lambda_function.pizza_fulfillment.function_name
+  principal     = "lex.amazonaws.com"
+  source_arn    = "arn:aws:lex:us-east-1:123456789012:intent:OrderPizza:*"
+}
+
+##############################
+# Lex slot types and intents
+##############################
+
+resource "aws_lex_slot_type" "crust" {
+  name        = "PizzaCrustType"
+  description = "Available pizza crusts"
+
+  enumeration_value {
+    value    = "thin"
+    synonyms = ["thin crust", "crispy"]
+  }
+
+  enumeration_value {
+    value    = "thick"
+    synonyms = ["deep dish", "pan"]
+  }
+
+  enumeration_value {
+    value    = "hand tossed"
+    synonyms = ["regular", "classic"]
+  }
+
+  value_selection_strategy = "TOP_RESOLUTION"
+  create_version           = true
+}
+
+resource "aws_lex_slot_type" "size" {
+  name        = "PizzaSizeType"
+  description = "Available pizza sizes"
+
+  enumeration_value {
+    value    = "small"
+    synonyms = ["personal"]
+  }
+
+  enumeration_value {
+    value    = "medium"
+    synonyms = ["regular"]
+  }
+
+  enumeration_value {
+    value    = "large"
+    synonyms = ["family"]
+  }
+
+  value_selection_strategy = "TOP_RESOLUTION"
+  create_version           = true
+}
+
+resource "aws_lex_slot_type" "topping" {
+  name        = "PizzaToppingType"
+  description = "Available pizza toppings"
+
+  enumeration_value {
+    value    = "cheese"
+    synonyms = ["extra cheese", "plain"]
+  }
+
+  enumeration_value {
+    value    = "pepperoni"
+    synonyms = ["peperoni"]
+  }
+
+  enumeration_value {
+    value    = "mushroom"
+    synonyms = ["mushrooms"]
+  }
+
+  value_selection_strategy = "TOP_RESOLUTION"
+  create_version           = true
+}
+
+resource "aws_lex_intent" "order_pizza" {
+  name        = "OrderPizza"
+  description = "Intent to order a pizza"
+
+  fulfillment_activity {
+    type = "CodeHook"
+
+    code_hook {
+      message_version = "1.0"
+      uri             = aws_lambda_function.pizza_fulfillment.arn
+    }
+  }
+
+  sample_utterances = [
+    "I want to order a pizza",
+    "I would like to order a pizza",
+    "Can I get a pizza",
+    "Order me a {size} {crust} pizza with {topping}",
+  ]
+
+  slot {
+    name            = "size"
+    description     = "The size of the pizza"
+    slot_constraint = "Required"
+    slot_type       = aws_lex_slot_type.size.name
+    slot_type_version = aws_lex_slot_type.size.version
+    priority        = 1
+
+    value_elicitation_prompt {
+      max_attempts = 2
+
+      message {
+        content      = "What size pizza would you like? Small, medium or large?"
+        content_type = "PlainText"
+      }
+    }
+  }
+
+  slot {
+    name            = "crust"
+    description     = "The crust of the pizza"
+    slot_constraint = "Required"
+    slot_type       = aws_lex_slot_type.crust.name
+    slot_type_version = aws_lex_slot_type.crust.version
+    priority        = 2
+
+    value_elicitation_prompt {
+      max_attempts = 2
+
+      message {
+        content      = "What crust would you like? Thin, thick or hand tossed?"
+        content_type = "PlainText"
+      }
+    }
+  }
+
+  slot {
+    name            = "topping"
+    description     = "The topping of the pizza"
+    slot_constraint = "Required"
+    slot_type       = aws_lex_slot_type.topping.name
+    slot_type_version = aws_lex_slot_type.topping.version
+    priority        = 3
+
+    value_elicitation_prompt {
+      max_attempts = 2
+
+      message {
+        content      = "What topping would you like? Cheese, pepperoni or mushroom?"
+        content_type = "PlainText"
+      }
+    }
+  }
+
+  confirmation_prompt {
+    max_attempts = 2
+
+    message {
+      content      = "Should I order your {size} {crust} pizza with {topping}?"
+      content_type = "PlainText"
+    }
+  }
+
+  rejection_statement {
+    message {
+      content      = "Okay, I have cancelled your pizza order."
+      content_type = "PlainText"
+    }
+  }
+
+  create_version = true
+
+  depends_on = [aws_lambda_permission.allow_lex]
+}
+
+##############################
+# Lex bot
+##############################
+
+resource "aws_lex_bot" "pizza" {
+  name             = local.bot_name
+  description      = "Bot for ordering pizzas"
+  child_directed   = false
+  process_behavior = "BUILD"
+  idle_session_ttl_in_seconds = 600
+  locale           = "en-US"
+  voice_id         = "Joanna"
+
+  intent {
+    intent_name    = aws_lex_intent.order_pizza.name
+    intent_version = aws_lex_intent.order_pizza.version
+  }
+
+  abort_statement {
+    message {
+      content      = "Sorry, I am not able to assist at this time."
+      content_type = "PlainText"
+    }
+  }
+
+  clarification_prompt {
+    max_attempts = 2
+
+    message {
+      content      = "I did not understand you. What would you like to do?"
+      content_type = "PlainText"
+    }
+  }
+}
+
+output "bot_name" {
+  description = "Name of the Lex pizza ordering bot"
+  value       = aws_lex_bot.pizza.name
+}
+
+output "lambda_function_arn" {
+  description = "ARN of the fulfillment Lambda function"
+  value       = aws_lambda_function.pizza_fulfillment.arn
+}

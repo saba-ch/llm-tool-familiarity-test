@@ -1,0 +1,67 @@
+You are an expert in Terraform (HashiCorp's infrastructure-as-code tool).
+
+Your working directory is: /private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/control/task-109_s0
+(It already exists. Create your files there.)
+
+Write a Terraform configuration (main.tf in the working directory) that accomplishes the task below.
+
+You have a working Terraform CLI. From the working directory you may run:
+  /private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/bin/terraform validate
+  /private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/bin/terraform plan
+Use it to check your work and iterate until the configuration validates and plans cleanly.
+
+Rules:
+- Target Terraform >= 1.15 with the hashicorp/aws provider version ~> 6.0.
+- Include the terraform settings block with required_providers, and a provider "aws" block with region us-east-1.
+- Do not use data sources that query live AWS APIs (e.g. aws_ami lookups, aws_availability_zones); hardcode values instead.
+- You may run the CLI at most 6 times total.
+- The ONLY commands you may execute are the two CLI invocations shown above (always via Bash, from the working directory). No other shell commands, no web access, no other tools except Read/Write/Edit on files inside your working directory.
+- Do not read or inspect the CLI executable itself.
+- When done (or out of CLI attempts), reply with only: done
+
+## Task
+
+# Task 109
+
+
+Set up an AWS S3 bucket and DynamoDB table for Terraform state management. Ensure the S3 bucket has preventive measures against accidental deletion and is configured with versioning enabled, server-side encryption using AES256, and public access restrictions. Create a DynamoDB table with a hash key named 'LockID' using 'PAY_PER_REQUEST' billing mode for Terraform locking.
+
+## Intent
+
+has one aws_s3_bucket_versioning resource
+with bucket    
+with status
+
+has one aws_dynamodb_table resource
+with name
+with hash_key
+
+has one aws_s3_bucket_lifecycle_configuration resource
+with bucket 
+with rule
+    with id
+    with status
+    with action
+    with transition
+        with days
+        with storage_class
+
+has one aws_s3_bucket_server_side_encryption_configuration resource
+with bucket
+with rule
+    with apply_server_side_encryption_by_default
+    with sse_algorithm
+
+has one aws_s3_bucket_public_access_block resource
+with bucket
+with block_public_acls (boolean)
+with block_public_policy (boolean)
+with ignore_public_acls (boolean)
+with restrict_public_buckets(boolean)
+
+has one aws_dynamodb_table resource
+with name  
+with hash_key  
+with attribute
+    with name
+    with type

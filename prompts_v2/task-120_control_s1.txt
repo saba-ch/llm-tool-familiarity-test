@@ -1,0 +1,42 @@
+You are an expert in Terraform (HashiCorp's infrastructure-as-code tool).
+
+Your working directory is: /private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/agentic/control/task-120_s1
+(It already exists. Create your files there.)
+
+Write a Terraform configuration (main.tf in the working directory) that accomplishes the task below.
+
+You have a working Terraform CLI. From the working directory you may run:
+  /private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/bin/terraform validate
+  /private/tmp/claude-501/-Users-saba-projects-research/c83c037d-d282-47a5-a33e-2640a0abdcaa/scratchpad/bin/terraform plan
+Use it to check your work and iterate until the configuration validates and plans cleanly.
+
+Rules:
+- Target Terraform >= 1.15 with the hashicorp/aws provider version ~> 6.0.
+- Include the terraform settings block with required_providers, and a provider "aws" block with region us-east-1.
+- Do not use data sources that query live AWS APIs (e.g. aws_ami lookups, aws_availability_zones); hardcode values instead.
+- You may run the CLI at most 6 times total.
+- The ONLY commands you may execute are the two CLI invocations shown above (always via Bash, from the working directory). No other shell commands, no web access, no other tools except Read/Write/Edit on files inside your working directory.
+- Do not read or inspect the CLI executable itself.
+- When done (or out of CLI attempts), reply with only: done
+
+## Task
+
+# Task 120
+
+
+Create a Terraform configuration for an AWS environment. Start by defining a KMS key with the description "This key is used to encrypt bucket objects" and a deletion window of 10 days. Next, define an S3 bucket named "mybucket". Finally, configure server-side encryption for the S3 bucket using the previously defined KMS key. The encryption should use the "aws:kms" algorithm. Include resource blocks for each component and ensure the bucket encryption references the KMS key's ARN and uses the KMS algorithm for encryption.
+
+## Intent
+
+Resource "aws_kms_key"
+has one "description"
+has one "deletion_window_in_days"
+
+Resource "aws_s3_bucket"
+has one "bucket"
+
+Resource "aws_s3_bucket_server_side_encryption_configuration"
+has one "bucket"
+within "rule", it specifies:
+"kms_master_key_id"
+"sse_algorithm"

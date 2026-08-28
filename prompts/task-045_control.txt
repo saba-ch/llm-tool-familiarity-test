@@ -1,0 +1,21 @@
+You are an expert in Terraform (HashiCorp's infrastructure-as-code tool).
+Write a single complete Terraform configuration file (main.tf) that accomplishes the task below.
+
+Requirements:
+- Target Terraform >= 1.15 with the hashicorp/aws provider version ~> 6.0.
+- Include the terraform settings block with required_providers, and a provider "aws" block with region us-east-1.
+- The configuration must pass `terraform validate` and `terraform plan`.
+- Do not use data sources that require querying live AWS APIs (e.g. aws_ami lookups, aws_availability_zones); hardcode values instead.
+- IMPORTANT: Do not use any tools. Answer directly from your own knowledge.
+- Your final message must be ONLY the raw file content: no markdown code fences, no explanations, no commentary.
+
+## Task
+
+# Task 045
+
+
+create an aws_lex bot for ordering pizza with a followup question
+
+## Intent
+
+Has one resource "aws_lex_bot" and one resource "aws_lex_intent" with followup question block (slot block and "aws_lex_slot_type" is not mandatory)

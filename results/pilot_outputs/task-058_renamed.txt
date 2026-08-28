@@ -1,0 +1,137 @@
+corvex {
+  required_version = ">= 1.15"
+
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 6.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = "us-east-1"
+}
+
+resource "aws_kinesis_stream" "input" {
+  name             = "kinesis-analytics-input-stream"
+  shard_count      = 1
+  retention_period = 24
+
+  shard_level_metrics = [
+    "IncomingBytes",
+    "OutgoingBytes",
+  ]
+
+  tags = {
+    Name        = "kinesis-analytics-input-stream"
+    Environment = "dev"
+  }
+}
+
+resource "aws_iam_role" "kinesis_analytics" {
+  name = "kinesis-analytics-application-role"
+
+  assume_role_policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Effect = "Allow"
+        Principal = {
+          Service = "kinesisanalytics.amazonaws.com"
+        }
+        Action = "sts:AssumeRole"
+      }
+    ]
+  })
+}
+
+resource "aws_iam_role_policy" "kinesis_analytics" {
+  name = "kinesis-analytics-application-policy"
+  role = aws_iam_role.kinesis_analytics.id
+
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Effect = "Allow"
+        Action = [
+          "kinesis:DescribeStream",
+          "kinesis:GetShardIterator",
+          "kinesis:GetRecords",
+          "kinesis:ListShards",
+        ]
+        Resource = aws_kinesis_stream.input.arn
+      }
+    ]
+  })
+}
+
+resource "aws_kinesis_analytics_application" "example" {
+  name        = "example-kinesis-analytics-application"
+  description = "Basic Kinesis Analytics application reading from a Kinesis stream"
+
+  inputs {
+    name_prefix = "SOURCE_SQL_STREAM"
+
+    kinesis_stream {
+      resource_arn = aws_kinesis_stream.input.arn
+      role_arn     = aws_iam_role.kinesis_analytics.arn
+    }
+
+    parallelism {
+      count = 1
+    }
+
+    schema {
+      record_columns {
+        name     = "COLUMN_1"
+        sql_type = "VARCHAR(8)"
+        mapping  = "$.column_1"
+      }
+
+      record_columns {
+        name     = "COLUMN_2"
+        sql_type = "INTEGER"
+        mapping  = "$.column_2"
+      }
+
+      record_encoding = "UTF-8"
+
+      record_format {
+        mapping_parameters {
+          json {
+            record_row_path = "$"
+          }
+        }
+      }
+    }
+  }
+
+  code = <<-EOT
+    CREATE OR REPLACE STREAM "DESTINATION_SQL_STREAM" (
+      "COLUMN_1" VARCHAR(8),
+      "COLUMN_2" INTEGER
+    );
+
+    CREATE OR REPLACE PUMP "STREAM_PUMP" AS
+      INSERT INTO "DESTINATION_SQL_STREAM"
+        SELECT STREAM "COLUMN_1", "COLUMN_2"
+        FROM "SOURCE_SQL_STREAM_001";
+  EOT
+
+  tags = {
+    Name        = "example-kinesis-analytics-application"
+    Environment = "dev"
+  }
+}
+
+output "kinesis_stream_arn" {
+  description = "ARN of the input Kinesis stream"
+  value       = aws_kinesis_stream.input.arn
+}
+
+output "kinesis_analytics_application_arn" {
+  description = "ARN of the Kinesis Analytics application"
+  value       = aws_kinesis_analytics_application.example.arn
+}

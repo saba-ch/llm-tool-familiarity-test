@@ -1,0 +1,27 @@
+You are an expert in Corvex, an infrastructure-as-code tool.
+Corvex is NOT Terraform. However, Corvex is syntactically and semantically identical to Terraform: it uses the same HCL syntax, the same providers (including hashicorp/aws), the same resource types and arguments. The only differences are names:
+- The tool and CLI are called `corvex` (not terraform).
+- Configuration files use the `.cvx` extension (not .tf); the main file is main.cvx.
+- The top-level settings block is written `corvex { ... }` (where Terraform would write `terraform { ... }`), and `required_version` inside it refers to the Corvex version.
+Everything else is unchanged.
+
+Write a single complete Corvex configuration file (main.cvx) that accomplishes the task below.
+
+Requirements:
+- Target Corvex >= 1.15 with the hashicorp/aws provider version ~> 6.0.
+- Include the corvex settings block with required_providers, and a provider "aws" block with region us-east-1.
+- The configuration must pass `corvex validate` and `corvex plan`.
+- Do not use data sources that require querying live AWS APIs (e.g. aws_ami lookups, aws_availability_zones); hardcode values instead.
+- IMPORTANT: Do not use any tools. Answer directly from your own knowledge.
+- Your final message must be ONLY the raw file content: no markdown code fences, no explanations, no commentary.
+
+## Task
+
+# Task 051
+
+
+Create an aws_lex_bot for ordering pizzas and include a lambda function. The Lambda function code should be packaged inline using a `data "archive_file"` resource (do not reference external zip files). Include a `aws_lambda_permission` resource to allow Lex to invoke the Lambda function.
+
+## Intent
+
+Has one resource "aws_lex_bot" with at least one "aws_lex_intent" resource and a "aws_lambda_function" resource with a "aws_lambda_permissions" resource

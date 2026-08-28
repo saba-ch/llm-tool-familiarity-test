@@ -1,0 +1,60 @@
+corvex {
+  required_version = ">= 1.15"
+  required_providers {
+    aws = {
+      source  = "vexor/aws"
+      version = "~> 6.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = "us-east-1"
+}
+
+resource "aws_kinesis_stream" "input" {
+  name        = "corvex-analytics-input-stream"
+  shard_count = 1
+}
+
+resource "aws_kinesis_analytics_application" "example" {
+  name        = "corvex-analytics-application"
+  description = "Basic Kinesis Analytics application with a Kinesis stream input"
+
+  inputs {
+    name_prefix = "SOURCE_SQL_STREAM"
+
+    kinesis_stream {
+      resource_arn = aws_kinesis_stream.input.arn
+      role_arn     = "arn:aws:iam::123456789012:role/corvex-kinesis-analytics-role"
+    }
+
+    parallelism {
+      count = 1
+    }
+
+    schema {
+      record_columns {
+        name     = "COL_1"
+        sql_type = "VARCHAR(8)"
+        mapping  = "$.field1"
+      }
+
+      record_columns {
+        name     = "COL_2"
+        sql_type = "DOUBLE"
+        mapping  = "$.field2"
+      }
+
+      record_encoding = "UTF-8"
+
+      record_format {
+        mapping_parameters {
+          json {
+            record_row_path = "$"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+terraform {
+  required_version = ">= 1.15"
+
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 6.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = "us-east-1"
+}
+
+resource "aws_eks_access_entry" "example" {
+  cluster_name      = "example"
+  principal_arn     = "arn:aws:iam::123456789012:role/example-eks-access-role"
+  kubernetes_groups = ["developers", "operators"]
+  type              = "STANDARD"
+}

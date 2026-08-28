@@ -1,0 +1,336 @@
+corvex {
+  required_version = ">= 1.15"
+  required_providers {
+    aws = {
+      source  = "vexor/aws"
+      version = "~> 6.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = "us-east-1"
+}
+
+# ---------------------------------------------------------------------------
+# Lambda fulfillment function (code packaged inline, no external zip file)
+# ---------------------------------------------------------------------------
+
+data "archive_file" "pizza_order_lambda" {
+  type        = "zip"
+  output_path = "${path.module}/build/pizza_order_lambda.zip"
+
+  source {
+    filename = "index.py"
+    content  = <<-EOT
+      import json
+
+
+      def handler(event, context):
+          slots = event.get("currentIntent", {}).get("slots", {})
+          crust = slots.get("crust") or "hand tossed"
+          size = slots.get("size") or "medium"
+          topping = slots.get("topping") or "cheese"
+
+          message = "Your {} {} pizza with {} is on its way!".format(
+              size, crust, topping
+          )
+
+          return {
+              "dialogAction": {
+                  "type": "Close",
+                  "fulfillmentState": "Fulfilled",
+                  "message": {"contentType": "PlainText", "content": message},
+              }
+          }
+    EOT
+  }
+}
+
+resource "aws_iam_role" "pizza_order_lambda" {
+  name = "pizza-order-lambda-role"
+
+  assume_role_policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Effect = "Allow"
+        Action = "sts:AssumeRole"
+        Principal = {
+          Service = "lambda.amazonaws.com"
+        }
+      }
+    ]
+  })
+}
+
+resource "aws_iam_role_policy_attachment" "pizza_order_lambda_basic" {
+  role       = aws_iam_role.pizza_order_lambda.name
+  policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+}
+
+resource "aws_lambda_function" "pizza_order" {
+  function_name = "pizza-order-fulfillment"
+  role          = aws_iam_role.pizza_order_lambda.arn
+  handler       = "index.handler"
+  runtime       = "python3.12"
+  timeout       = 10
+  memory_size   = 128
+
+  filename         = data.archive_file.pizza_order_lambda.output_path
+  source_code_hash = data.archive_file.pizza_order_lambda.output_base64sha256
+
+  environment {
+    variables = {
+      LOG_LEVEL = "INFO"
+    }
+  }
+
+  tags = {
+    Name        = "pizza-order-fulfillment"
+    Application = "pizza-bot"
+  }
+}
+
+resource "aws_lambda_permission" "allow_lex_order_pizza" {
+  statement_id  = "AllowExecutionFromLex"
+  action        = "lambda:InvokeFunction"
+  function_name = aws_lambda_function.pizza_order.function_name
+  principal     = "lex.amazonaws.com"
+  source_arn    = "arn:aws:lex:us-east-1:123456789012:intent:OrderPizza:*"
+}
+
+# ---------------------------------------------------------------------------
+# Lex slot types, intents and bot
+# ---------------------------------------------------------------------------
+
+resource "aws_lex_slot_type" "pizza_size" {
+  name        = "PizzaSize"
+  description = "Available pizza sizes"
+
+  enumeration_value {
+    value    = "small"
+    synonyms = ["personal", "individual"]
+  }
+
+  enumeration_value {
+    value    = "medium"
+    synonyms = ["regular"]
+  }
+
+  enumeration_value {
+    value    = "large"
+    synonyms = ["family", "party size"]
+  }
+
+  value_selection_strategy = "TOP_RESOLUTION"
+  create_version           = true
+}
+
+resource "aws_lex_slot_type" "pizza_crust" {
+  name        = "PizzaCrust"
+  description = "Available pizza crusts"
+
+  enumeration_value {
+    value    = "thin"
+    synonyms = ["thin crust", "crispy"]
+  }
+
+  enumeration_value {
+    value    = "hand tossed"
+    synonyms = ["classic", "regular crust"]
+  }
+
+  enumeration_value {
+    value    = "stuffed"
+    synonyms = ["cheese stuffed"]
+  }
+
+  value_selection_strategy = "TOP_RESOLUTION"
+  create_version           = true
+}
+
+resource "aws_lex_slot_type" "pizza_topping" {
+  name        = "PizzaTopping"
+  description = "Available pizza toppings"
+
+  enumeration_value {
+    value    = "cheese"
+    synonyms = ["plain", "margherita"]
+  }
+
+  enumeration_value {
+    value    = "pepperoni"
+    synonyms = ["peperoni"]
+  }
+
+  enumeration_value {
+    value    = "mushroom"
+    synonyms = ["mushrooms"]
+  }
+
+  value_selection_strategy = "TOP_RESOLUTION"
+  create_version           = true
+}
+
+resource "aws_lex_intent" "order_pizza" {
+  name           = "OrderPizza"
+  description    = "Order a pizza for delivery"
+  create_version = true
+
+  sample_utterances = [
+    "I want to order a pizza",
+    "I would like to order a {size} {crust} pizza with {topping}",
+    "Can I get a pizza",
+  ]
+
+  slot {
+    name             = "size"
+    description      = "The size of the pizza"
+    slot_constraint  = "Required"
+    slot_type        = aws_lex_slot_type.pizza_size.name
+    slot_type_version = aws_lex_slot_type.pizza_size.version
+    priority         = 1
+
+    value_elicitation_prompt {
+      max_attempts = 2
+
+      message {
+        content      = "What size pizza would you like? Small, medium or large?"
+        content_type = "PlainText"
+      }
+    }
+  }
+
+  slot {
+    name             = "crust"
+    description      = "The crust of the pizza"
+    slot_constraint  = "Required"
+    slot_type        = aws_lex_slot_type.pizza_crust.name
+    slot_type_version = aws_lex_slot_type.pizza_crust.version
+    priority         = 2
+
+    value_elicitation_prompt {
+      max_attempts = 2
+
+      message {
+        content      = "What crust would you like? Thin, hand tossed or stuffed?"
+        content_type = "PlainText"
+      }
+    }
+  }
+
+  slot {
+    name             = "topping"
+    description      = "The topping of the pizza"
+    slot_constraint  = "Required"
+    slot_type        = aws_lex_slot_type.pizza_topping.name
+    slot_type_version = aws_lex_slot_type.pizza_topping.version
+    priority         = 3
+
+    value_elicitation_prompt {
+      max_attempts = 2
+
+      message {
+        content      = "What topping would you like? Cheese, pepperoni or mushroom?"
+        content_type = "PlainText"
+      }
+    }
+  }
+
+  confirmation_prompt {
+    max_attempts = 2
+
+    message {
+      content      = "Should I order your {size} {crust} pizza with {topping}?"
+      content_type = "PlainText"
+    }
+  }
+
+  rejection_statement {
+    message {
+      content      = "Okay, I have cancelled your order."
+      content_type = "PlainText"
+    }
+  }
+
+  fulfillment_activity {
+    type = "CodeHook"
+
+    code_hook {
+      message_version = "1.0"
+      uri             = aws_lambda_function.pizza_order.arn
+    }
+  }
+}
+
+resource "aws_lex_intent" "cancel_order" {
+  name           = "CancelPizzaOrder"
+  description    = "Cancel an in progress pizza order"
+  create_version = true
+
+  sample_utterances = [
+    "Cancel my order",
+    "Never mind",
+    "Forget the pizza",
+  ]
+
+  fulfillment_activity {
+    type = "ReturnIntent"
+  }
+
+  conclusion_statement {
+    message {
+      content      = "Your pizza order has been cancelled."
+      content_type = "PlainText"
+    }
+  }
+}
+
+resource "aws_lex_bot" "pizza_order_bot" {
+  name             = "PizzaOrderingBot"
+  description      = "Bot for ordering pizzas"
+  child_directed   = false
+  locale           = "en-US"
+  process_behavior = "BUILD"
+  create_version   = true
+
+  idle_session_ttl_in_seconds = 600
+  voice_id                    = "Joanna"
+
+  intent {
+    intent_name    = aws_lex_intent.order_pizza.name
+    intent_version = aws_lex_intent.order_pizza.version
+  }
+
+  intent {
+    intent_name    = aws_lex_intent.cancel_order.name
+    intent_version = aws_lex_intent.cancel_order.version
+  }
+
+  abort_statement {
+    message {
+      content      = "Sorry, I am not able to take your pizza order right now."
+      content_type = "PlainText"
+    }
+  }
+
+  clarification_prompt {
+    max_attempts = 2
+
+    message {
+      content      = "I did not understand you. What would you like to order?"
+      content_type = "PlainText"
+    }
+  }
+}
+
+output "lex_bot_name" {
+  value       = aws_lex_bot.pizza_order_bot.name
+  description = "Name of the pizza ordering Lex bot"
+}
+
+output "fulfillment_lambda_arn" {
+  value       = aws_lambda_function.pizza_order.arn
+  description = "ARN of the Lambda function fulfilling pizza orders"
+}
